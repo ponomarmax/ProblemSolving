@@ -1,4 +1,10 @@
-﻿var sol = new InefficientSolution();
+﻿/*
+ * 907. Sum of Subarray Minimums
+ * https://leetcode.com/problems/sum-of-subarray-minimums/submissions/
+ */
+
+
+var sol = new InefficientSolution();
 
 //Console.WriteLine(sol.SumSubarrayMins(new int[] { 3, 1, 2, 4 }));
 //Console.WriteLine(sol.SumSubarrayMins(new int[] { 7634, 1969, 25797, 28289, 9085, 12243, 24302, 1868, 19230, 3820, 8613, 24899, 1666, 1079, 12536, 14755, 25900, 21516, 20207, 4542, 29602, 12335, 18354, 11601, 1411, 14127, 4542, 974, 18523, 18899, 3159, 16475, 10401, 11503, 23293, 14710, 26439, 18304, 14016, 18970, 10136, 3730, 20476, 18662, 23657, 3814, 27354, 23981, 27507, 26177 }));
