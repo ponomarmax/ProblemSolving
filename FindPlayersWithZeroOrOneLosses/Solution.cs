@@ -1,26 +1,20 @@
-﻿public class Solution
+﻿using System.Text.RegularExpressions;
+
+public class Solution
 {
     public IList<IList<int>> FindWinners(int[][] matches)
     {
-        var winners = new HashSet<int>();
-        var losers = new Dictionary<int, int>();
+        var matchCounter = new Dictionary<int, int>();
 
         foreach (var match in matches)
         {
-            if (losers.TryGetValue(match.First(), out _))
-                winners.Remove(match.First());
-            else
-                winners.Add(match.First());
+            matchCounter.TryAdd(match.First(), 0);
 
-            if (losers.TryGetValue(match.Last(), out _))
-                losers[match.Last()]++;
-            else
-                losers.Add(match.Last(), 1);
-
-            winners.Remove(match.Last());
+            if (!matchCounter.TryAdd(match.Last(), 1))
+                matchCounter[match.Last()]++;
         }
 
-        return new List<IList<int>>{  winners.OrderBy(x=>x).ToList(),
-            losers.Where(x=>x.Value==1).Select(x=>x.Key).OrderBy(x=>x).ToList() };
+        return new List<IList<int>>{  matchCounter.Where(x=>x.Value==0).Select(x=>x.Key).OrderBy(x=>x).ToList(),
+            matchCounter.Where(x=>x.Value==1).Select(x=>x.Key).OrderBy(x=>x).ToList() };
     }
 }
