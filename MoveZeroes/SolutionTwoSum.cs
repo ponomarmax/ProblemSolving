@@ -17,3 +17,17 @@
         }
     }
 }
+
+public partial class Solution
+{
+    public void ReverseString(char[] s)
+    {
+        var (i, j) = (0, s.Length - 1);
+        while (i < j)
+        {
+            (s[i], s[j]) = (s[j], s[i]);
+            i++;
+            j--;
+        }
+    }
+}
