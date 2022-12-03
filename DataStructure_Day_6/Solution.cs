@@ -44,3 +44,22 @@ public partial class Solution
         return true;
     }
 }
+
+public partial class Solution
+{
+    public bool IsAnagram(string s, string t)
+    {
+        if (s.Length != t.Length) return false;
+
+        var letters = new char[26];
+        for (int i = 0; i < s.Length; i++)
+            letters[s[i] - 'a']++;
+
+        for (int i = 0; i < t.Length; i++)
+            letters[t[i] - 'a']--;
+
+        for (int i = 0; i < letters.Length; i++)
+            if (letters[i] != 0) return false;
+        return true;
+    }
+}
