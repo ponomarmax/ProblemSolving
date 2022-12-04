@@ -26,3 +26,40 @@
         return globalMax;
     }
 }
+
+public partial class Solution
+{
+    public bool CheckInclusion(string s1, string s2)
+    {
+        var alphabet = new char[26];
+
+        for (int i = 0; i < s1.Length; i++)
+        {
+            alphabet[s1[i] - 'a']++;
+        }
+
+        var temp = new char[26];
+
+
+        for (int i = 0; i < s2.Length - s1.Length + 1; i++)
+        {
+            Array.Copy(alphabet, temp, alphabet.Length);
+
+            for (int j = i; j < s1.Length + i; j++)
+            {
+                temp[s2[j] - 'a']--;
+            }
+            var result = true;
+            for (int k = 0; k < temp.Length; k++)
+            {
+                if (temp[k] != 0)
+                {
+                    result = false;
+                    break;
+                }
+            }
+            if (result) return true;
+        }
+        return false;
+    }
+}
