@@ -69,3 +69,28 @@ public partial class Solution
     }
 }
 
+public partial class Solution
+{
+    public ListNode RemoveElements(ListNode head, int val)
+    {
+        while (head != null && head.val == val)
+        {
+            head = head.next;
+        }
+        var slidePtr = head;
+
+        while (slidePtr != null)
+        {
+            if (slidePtr.next?.val == val)
+            {
+                slidePtr.next = slidePtr.next?.next;
+            }
+            else
+            {
+                slidePtr = slidePtr.next;
+            }
+        }
+        return head;
+    }
+}
+
