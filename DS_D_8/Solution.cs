@@ -8,7 +8,7 @@
         this.next = next;
     }
 }
-public class Solution
+public partial class Solution
 {
     public ListNode ReverseList(ListNode head)
     {
@@ -44,4 +44,22 @@ public class Solution
     //    current.next = previous;
     //    return previo ?? current;
     //}
+}
+
+public partial class Solution
+{
+    public ListNode DeleteDuplicates(ListNode head)
+    {
+        var ptr = head;
+        while (ptr != null && ptr.next != null)
+        {
+            if (ptr.val == ptr.next.val)
+            {
+                ptr.next = ptr.next.next;
+            }
+            else
+                ptr = ptr.next;
+        }
+        return head;
+    }
 }
