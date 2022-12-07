@@ -1,4 +1,4 @@
-﻿public class Solution
+﻿public partial class Solution
 {
     public bool IsValid(string s)
     {
@@ -10,7 +10,8 @@
             {
                 stack.Push(item);
             }
-            else {
+            else
+            {
                 if (item == ']' && (!stack.TryPop(out char symbol) || symbol != '[')) return false;
                 if (item == '}' && (!stack.TryPop(out symbol) || symbol != '{')) return false;
                 if (item == ')' && (!stack.TryPop(out symbol) || symbol != '(')) return false;
